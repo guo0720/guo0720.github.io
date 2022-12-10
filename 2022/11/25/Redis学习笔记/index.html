@@ -8,18 +8,25 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Redis学习笔记 | Dissolve</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="redis">
+  <meta name="description" content="Redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis学习笔记">
 <meta property="og:url" content="http://example.com/2022/11/25/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Dissolve">
-<meta property="og:description" content="redis">
+<meta property="og:description" content="Redis">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5C1.png">
+<meta property="og:image" content="http://example.com/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5C2.png">
+<meta property="og:image" content="http://example.com/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/3.png">
+<meta property="og:image" content="http://example.com/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/4.png">
+<meta property="og:image" content="http://example.com/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/5.png">
+<meta property="og:image" content="http://example.com/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/6.png">
 <meta property="article:published_time" content="2022-11-25T14:56:52.000Z">
-<meta property="article:modified_time" content="2022-12-10T01:51:59.784Z">
+<meta property="article:modified_time" content="2022-12-10T08:42:16.481Z">
 <meta property="article:author" content="gq">
 <meta property="article:tag" content="中间件">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5C1.png">
   
     <link rel="alternative" href="/atom.xml" title="Dissolve" type="application/atom+xml">
   
@@ -175,7 +182,296 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>redis</p>
+        <p>Redis</p>
+<span id="more"></span>
+
+<p>redis是一种基于内存的键值型数据库</p>
+<ul>
+<li><p>SQL与NoSQL的对比</p>
+<ul>
+<li><img src="/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5C1.png"></li>
+</ul>
+</li>
+<li><p>key的结构：key允许有多个单词形成层级结构，多个单词之间用 ：隔开</p>
+<h2 id="Redis常用命令"><a href="#Redis常用命令" class="headerlink" title="Redis常用命令"></a>Redis常用命令</h2><ul>
+<li>通用命令<ul>
+<li>keys：查看符合模板的所有key</li>
+<li>del：删除一个指定的key</li>
+<li>exists：判断key是否存在</li>
+<li>expire：给key设置一个有效期，到期自动删除</li>
+<li>ttl：查看key的有效期</li>
+</ul>
+</li>
+<li>string 字符串类型<ul>
+<li>set：添加或修改已经存在的一个string类型键值对</li>
+<li>get：根据key获取string类型的value</li>
+<li>mest：批量添加多个string类型键值对</li>
+<li>mget：根据多个key获取多个string类型的value</li>
+<li>incr：让一个整性key自增1</li>
+<li>incrby：让一个整型key自增并指定步长</li>
+<li>incrbyfloat：让一个浮点数字自增并指定步长</li>
+<li>setnx：添加一个string类型的键值对，前提是kei不存在否则不执行</li>
+<li>setex：添加一个string类型的键值对，并指定有效期</li>
+</ul>
+</li>
+<li>hash类型 （也叫散列，其value是一个无序字典）<ul>
+<li>hset key filed value：添加或修改hash类型的key的filed值</li>
+<li>hget key filed ：获取一个hash类型的key的filed值</li>
+<li>hmset：批量添加多个hash类型的key的filed的值</li>
+<li>hmget：批量获取多个hash类型的key的filed值</li>
+<li>hgetall：获取一个hash类型的key中所有的filed和value</li>
+<li>hkeys：获取一个hash类型的key中所有的filed</li>
+<li>hvals：获取一个hash类型的key中所有的value</li>
+<li>hincrby：让一个hash类型key字段值自增并指定步长</li>
+<li>hsetnx：添加一个hash类型的key的filed值，前提是这个filed不存在，否则不执行</li>
+</ul>
+</li>
+<li>list类型：可以看成一个双向链表结构，支持正反向检索<ul>
+<li>特点：有序，可重复，插入删除快，查询慢</li>
+<li>lpush key element：向链表左侧插入一个或多个元素</li>
+<li>lpop key：移除并返回左侧第一个元素，没有返回nil</li>
+<li>rpush key element：向列表右侧插入一个或多个元素</li>
+<li>rpop key：移除并返回列表右侧第一个元素</li>
+<li>lrange key start end：返回一端角标范围内的所有元素</li>
+<li>blplp与brpop：与lpop和rpop相比，只不过在没有元素时指定等待时间，而不是直接返回nil</li>
+</ul>
+</li>
+<li>set类型：无序，不重复，查找快，支持交集，并集，差集等<ul>
+<li>sadd key member：向set中添加一个或多个元素</li>
+<li>srem key member：移除set中的指定元素</li>
+<li>scard key：返回set中元素的个数</li>
+<li>sismember key member：判断一个元素是否存在与set中</li>
+<li>smembers：获取set中所有元素</li>
+<li>sinter key1 key2：求key1和key2的交集</li>
+<li>sdiff key1 key2 ：求key1和key2的差集</li>
+<li>sunion key1 key2 ：求key1和key2的并集</li>
+</ul>
+</li>
+<li>sortedset：可排序，元素不重复，查询速度快<ul>
+<li>zadd key score member：添加一个或多个元素或者更新已存在元素分数</li>
+<li>zrem key member：删除sortedset中一个指定元素</li>
+<li>zscore key member：获取sortedscore指定元素的score</li>
+<li>zrank key member：获取sortedscore中指定元素的排名</li>
+<li>zcard key：获取sortedset中的元素个数</li>
+<li>zcount key min max：统计score值在指定范围内的所有元素个数</li>
+<li>zincrby key increment member：让sortedset中得到指定元素自增，并指定步长</li>
+<li>zrange key min max ：按照score排序后获取指定排名范围的元素</li>
+<li>zrangebyscore key min max：只能找score排序后获取指定score范围内的元素</li>
+<li>zdiff，zinter，zunion：求差集，交集，并集</li>
+<li>所有的的排名默认都是升序，如果要降序在命令的z后添加rev即可</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="java客户端"><a href="#java客户端" class="headerlink" title="java客户端"></a>java客户端</h2><ul>
+<li>jedis：jedis连接池，jedis本身是线程不安全的，并且频繁的创建和销毁连接会有性能损耗</li>
+<li>SpringDataRedis：对redis模块的集成<ul>
+<li>提供了对不同redis客户端的整合</li>
+<li>提供了RedisTemplate统一Api来操作redis</li>
+<li>spring默认使用的是lettuce</li>
+</ul>
+</li>
+</ul>
+<h2 id="Redis缓存"><a href="#Redis缓存" class="headerlink" title="Redis缓存"></a>Redis缓存</h2><ul>
+<li>数据交换的缓冲区，存储数据的临时区域，一般读写性能较高</li>
+<li>缓存的作用：<ul>
+<li>降低后端负载</li>
+<li>提高读写效率，降低响应时间</li>
+</ul>
+</li>
+<li>缓存的成本：<ul>
+<li>数据一致性成本</li>
+<li>代码维护成本</li>
+<li>运维成本</li>
+</ul>
+</li>
+<li>缓存更新策略<ul>
+<li>内存淘汰<ul>
+<li>不用自己维护，利用redis的内存淘汰机制，当内存不足时自动淘汰部分数据，下次查询时更新缓存</li>
+</ul>
+</li>
+<li>超时剔除<ul>
+<li>给缓存添加过期时间，到期后自动删除缓存，下次查询时更新缓存</li>
+</ul>
+</li>
+<li>主动更新<ul>
+<li>根据业务逻辑，在修改数据库同时更新缓存</li>
+</ul>
+</li>
+<li>场景使用<ul>
+<li>低一致性需求：使用内存淘汰</li>
+<li>高一致性：主动更新，并以超时剔除作为备用方案</li>
+</ul>
+</li>
+<li>主动更新策略<ul>
+<li>操作缓存和数据库有三个问题需要考虑<ol>
+<li>删除缓存还是更新缓存：更新：每次更新数据库都要更新缓存，无效写增多。删除：更新数据库让缓存失效，查询时在更新缓存</li>
+<li>如何保证缓存和数据库原子性：单体系统：将缓存和数据库放在一个事务中。分布式系统：利用tcc等分布式方案</li>
+<li>先操作数据库后删除缓存</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><p><strong>是指客户端请求的数据在缓存和数据库中都没有，这样缓存永远不会生效，这些请求都会访问数据库，如果此时发生很多请求就会加大数据库压力</strong></p>
+<ul>
+<li>解决方案<ul>
+<li>增加id复杂度</li>
+<li>做好数据的基础校验格式</li>
+<li>加强用户权限校验</li>
+<li>做好热点参数限流</li>
+<li>缓存空对象<ul>
+<li>优点：实现简单，维护方便</li>
+<li>缺点：额外的内存消耗。可能造成数据内短期不一致</li>
+</ul>
+</li>
+<li>布隆过滤<ul>
+<li>优点：内存占用少，没有多余的key</li>
+<li>缺点：实现复杂，可能造成误判</li>
+<li><img src="/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5C2.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><p><strong>缓存雪崩是指在同一时间段内大量的key同时失效或redis宕机，导致大量请求到达数据库，带来巨大压力</strong></p>
+<ul>
+<li>解决方案<ul>
+<li>给不同的key添加不同的过期时间</li>
+<li>利用redis集群提高服务的高可用性</li>
+<li>给缓存业务添加降级限流策略</li>
+<li>给业务添加多级缓存</li>
+</ul>
+</li>
+</ul>
+<h2 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h2><p><strong>也叫热点key问题，就是一个呗高并发访问并且缓存重建业务比较复杂的key突然失效，无数的请求访问会瞬间给数据库带来巨大的压力</strong></p>
+<ul>
+<li>解决访问<ul>
+<li>互斥锁<ul>
+<li><img src="/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/3.png"></li>
+<li>优点：1-没有额外的内存消耗，2-保证一致性，3-实现简单</li>
+<li>缺点：1-容易出现死锁，2-线程需要等待，性能收到影响</li>
+</ul>
+</li>
+<li>逻辑过期<ul>
+<li><img src="/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/4.png"></li>
+<li><img src="/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/5.png"></li>
+<li>优点：线程无需等待，性能较好</li>
+<li>缺点：1-不保证一致性，2-有额外的内存消耗，3-实现复杂</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h2><h3 id="rdb"><a href="#rdb" class="headerlink" title="rdb"></a>rdb</h3><ul>
+<li><p>全程redis database backuo file（redis数据备份文件），也叫redis数据快照，就是把内存中所有数据都记录到磁盘中。当redis实例故障重启后，从磁盘读取文件，恢复数据</p>
+</li>
+<li><p>快照文件名称为rdb文件，默认保存在当前运行目录</p>
+<ul>
+<li><table>
+<thead>
+<tr>
+<th>命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>save：保存数据到rdb文件。会占用主进程，并会在redis停机时自动执行一次</td>
+</tr>
+<tr>
+<td>bgsave：开启一个独立的进程保存数据</td>
+</tr>
+<tr>
+<td>save 900 1：表示在900秒内，如果有一个key被修改就会执行一次bgsave，如果是save “” 表示禁用rdb</td>
+</tr>
+<tr>
+<td>rdbcompression yes：表示开启rdb文件压缩</td>
+</tr>
+<tr>
+<td>dbfilename dump rdb：表示存储redis数据的文件名</td>
+</tr>
+<tr>
+<td>dir .&#x2F; :表示文件保存的路径目录</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>bgsave基本流程</p>
+<ul>
+<li>fork主进程得到一个子进程，共享内存空间</li>
+<li>子进程读取内存数据并写入新的rdb文件</li>
+<li>用新的rdb文件代替旧的rdb文件</li>
+</ul>
+</li>
+<li><p>rdb什么时候执行</p>
+<ul>
+<li>save：在服务停止时</li>
+<li>bgsave：指定 save 900 1</li>
+</ul>
+</li>
+<li><p>rdb的缺点</p>
+<ul>
+<li>rdb执行间隔时间长，两次rdb之间写入数据有丢失的风险</li>
+<li>fork子进程，压缩，写出rdb文件都比较耗时</li>
+</ul>
+</li>
+</ul>
+<h3 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h3><ul>
+<li><p>全称为append only file（追加文件），redis处理每一个写命令都会记录在这个文件中，可以看做命令日志文件</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>修改aof命令记录的频率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>appendfsync always：表示每执行一次写命令，立即记录到aof’文件中，可靠性最高，效率最低</td>
+</tr>
+<tr>
+<td>appendfsync everysec：（默认）写命令执行完先放入aof缓冲区，等待1s将缓冲区数据写入文件，</td>
+</tr>
+<tr>
+<td>appendfsysnc no：写命令执行完先放入aof缓冲区，有操作系统决定何时写入文件，可靠性最低，效率最高</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>因为是记录命令的操作，所以文件的大小比rdb文件大得多，而且aof会记录对同一个key的多次写操作但只有最后一次才会生效。通过bgrewriteaof命令。可以让aof文件执行重写功能，用最少的功能达到相同的效果</p>
+<ul>
+<li>重写阈值配置<ul>
+<li>auto-aof-rewrite-percentage  100：aof文件比上一次重写后文件增长多少百分比触发重写</li>
+<li>auto-aof-rewrite-min-size 64mb ：aof文件体积最小到多大以上触发重写</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="二者区别"><a href="#二者区别" class="headerlink" title="二者区别"></a>二者区别</h3><p><img src="/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/6.png"></p>
+<h2 id="Redis哨兵"><a href="#Redis哨兵" class="headerlink" title="Redis哨兵"></a>Redis哨兵</h2><ul>
+<li>监控：哨兵会不断检查master和slave节点是否正常工作</li>
+<li>自动故障恢复：如果master故障，哨兵会将一个slave提升为master</li>
+<li>服务监控状态：基于心跳机制检测服务状态，每隔一秒ping向集群每个redis实例<ul>
+<li>主观下线：如果一个哨兵发现redis实例未在规定时间内响应，认为是主管下线</li>
+<li>客观下线：当超过一定数量的哨兵都认为redis实例主观下线，则该实例为客观下线</li>
+</ul>
+</li>
+<li>如何选择新的master<ul>
+<li>首先会判断slave节点与master节点的断开时间，如果超过规定值（redis.conf）则会排除该节点</li>
+<li>然后判断slave节点的slave-priority值，越小优先级越高，0永不参与选举</li>
+<li>如果优先级一样判断offset，offset越大数据越新，优先级越高</li>
+<li>最后判断slave节点的运行id，越小优先级越高</li>
+</ul>
+</li>
+<li>故障转移<ul>
+<li>哨兵会给备选slave发送slaveof no one 命令，让该节点成为master</li>
+<li>哨兵给其他所有slave发送slaveof（新masterip，port）让这些slave成为新的master节点，同步数据</li>
+<li>最后哨兵强制修改故障的master节点，使其重启后成为新的master的从节点</li>
+</ul>
+</li>
+</ul>
 
       
 
