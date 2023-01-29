@@ -6,22 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Dissolve</title>
+  <title>Tag: 杂项 | Dissolve</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基础篇排序二分查找 思路：  二分查找必须是在有序表的基础之上的  首先确定首位边界与中间值  中间值与目标值进行比较，  如果中间值小于目标值，说明中间值左侧都小于目标值，此时移动首标位置往后走一位  如果中间值大于目标值，说明中间值右侧都大于目标值，此时移动尾标位置往前走一位  重新计算中间值位置  找到返回索引，未找到返回-1  &#96;&#96;&#96;javaimport java.">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="Dissolve">
-<meta property="og:url" content="http://example.com/2022/09/16/%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:url" content="http://example.com/tags/%E6%9D%82%E9%A1%B9/index.html">
 <meta property="og:site_name" content="Dissolve">
-<meta property="og:description" content="基础篇排序二分查找 思路：  二分查找必须是在有序表的基础之上的  首先确定首位边界与中间值  中间值与目标值进行比较，  如果中间值小于目标值，说明中间值左侧都小于目标值，此时移动首标位置往后走一位  如果中间值大于目标值，说明中间值右侧都大于目标值，此时移动尾标位置往前走一位  重新计算中间值位置  找到返回索引，未找到返回-1  &#96;&#96;&#96;javaimport java.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/09/16/%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/20181222211418449.png">
-<meta property="og:image" content="http://example.com/2022/09/16/%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/20210301210035894.png">
-<meta property="article:published_time" content="2022-09-16T01:24:23.632Z">
-<meta property="article:modified_time" content="2023-01-29T07:06:41.315Z">
 <meta property="article:author" content="gq">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/09/16/%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/20181222211418449.png">
   
     <link rel="alternative" href="/atom.xml" title="Dissolve" type="application/atom+xml">
   
@@ -157,562 +150,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-面试复习" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-    <div class="article-entry" itemprop="articleBody">
+    
       
-        <h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><h4 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h4><ul>
-<li><p>思路：</p>
-<ul>
-<li><p>二分查找必须是在有序表的基础之上的</p>
-</li>
-<li><p>首先确定首位边界与中间值</p>
-</li>
-<li><p>中间值与目标值进行比较，</p>
-</li>
-<li><p>如果中间值小于目标值，说明中间值左侧都小于目标值，此时移动首标位置往后走一位</p>
-</li>
-<li><p>如果中间值大于目标值，说明中间值右侧都大于目标值，此时移动尾标位置往前走一位</p>
-</li>
-<li><p>重新计算中间值位置</p>
-</li>
-<li><p>找到返回索引，未找到返回-1</p>
-</li>
-<li><p>&#96;&#96;&#96;java<br>import java.util.Arrays;<br>import java.util.Collections;</p>
-<p>public class er {</p>
-<pre><code>public static void main(String[] args) &#123;
-    int[] arr = &#123;3,2,43,54,12,56,76,345,87,345,2314,565,8&#125;;
-    int i = brainySearch(arr, 176);
-    System.out.println(i != -1 ? arr[i] : -1);
-&#125;
-
-private static int brainySearch(int[] arr, int i) &#123;
-    Arrays.sort(arr);
-    int l = 0, r = arr.length - 1, m;
-    while (l &lt;= r)&#123;
-        m = (l + r) &gt;&gt;&gt; 1;
-        if (arr[m] == i)&#123;
-            return m;
-        &#125;else if (arr[m] &gt; i)&#123;
-            r = m - 1;
-        &#125;else &#123;
-            l = m + 1;
-        &#125;
-    &#125;
-    return -1;
-&#125;
-</code></pre>
-<p>}</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">- 注意：解决整数溢出的方法</span><br><span class="line"></span><br><span class="line">  - 无符号右移1位</span><br><span class="line">  - l + (r - l) / 2</span><br><span class="line"></span><br><span class="line">- 题目分析</span><br><span class="line"></span><br><span class="line">  - 当给定的有序表个数位奇数每次 / 2取中间，直到找到对应的数字，除了几次就是查找了几次</span><br><span class="line"></span><br><span class="line">  - 当给定的有序表个数位偶数每次 / 2取中间靠左，直到找到对应的数字，除了几次就是查找了几次</span><br><span class="line"></span><br><span class="line">    &gt; 1，2，5，8，12，34，65，77 为偶数，找34</span><br><span class="line">    &gt;</span><br><span class="line">    &gt; 8 / 2 = 4 取中间靠左 = 3 L是8</span><br><span class="line">    &gt;</span><br><span class="line">    &gt; 4 / 2 = 2 取中间靠左 = 1 L是34 找到了</span><br><span class="line"></span><br><span class="line">  - ​	当只给定数组元素个数求最大查找次数时，可以使用2的n次方等于这个数就是答案</span><br><span class="line"></span><br><span class="line">    &gt; 128个元素的数组找一个数的最大查找次数为几？log2 128 +1</span><br><span class="line"></span><br><span class="line">#### 冒泡排序</span><br><span class="line"></span><br><span class="line">- 思路：</span><br><span class="line"></span><br><span class="line">  - 一次比较数组中相邻两个元素大小，若第一个大于第二个，则交换两个元素，两两比较一遍称为一轮冒泡，结果是让最大的元素排至最后</span><br><span class="line">  - 重复以上步骤，直到整个数组有序</span><br><span class="line"></span><br><span class="line">- 优化方式：</span><br><span class="line"></span><br><span class="line">  - 每轮冒泡时，最后一次交换索引可以作为下一轮冒泡的比较次数，如果这个值为0，代表整个数组有序。结束。</span><br><span class="line"></span><br><span class="line">  - ```java</span><br><span class="line">    package 基础篇.排序;</span><br><span class="line">    </span><br><span class="line">    import java.util.Arrays;</span><br><span class="line">    </span><br><span class="line">    public class 冒泡排序 &#123;</span><br><span class="line">        public static void main(String[] args) &#123;</span><br><span class="line">            int[] arr = &#123;1,3,5,6,2,6,3,2,5,7,2&#125;;</span><br><span class="line">            bubble(arr);</span><br><span class="line">            System.out.println(Arrays.toString(arr));</span><br><span class="line">        &#125;</span><br><span class="line">        public static void bubble(int[] arr)&#123;</span><br><span class="line">            int n = arr.length - 1;</span><br><span class="line">            while (true)&#123;</span><br><span class="line">                int last = 0;</span><br><span class="line">                for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">                    if (arr[i] &gt; arr[i+1])&#123;</span><br><span class="line">                        int temp = arr[i];</span><br><span class="line">                        arr[i] = arr[i+1];</span><br><span class="line">                        arr[i+1] = temp;</span><br><span class="line">                        last = i;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                n = last;</span><br><span class="line">                if (n == 0) return;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h4 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h4><ul>
-<li><p>思路：</p>
-<ul>
-<li>将数组分为排序和未排序的两个子集，每一轮从未排序的子集中选择出最小的元素，放入排序子集。</li>
-<li>重复以上步骤，直到整个数组有序</li>
-</ul>
-</li>
-<li><p>优化方式</p>
-<ul>
-<li>为减少交换次数，每一轮可以先找最小的索引，在每轮最后再交换元素</li>
-</ul>
-</li>
-<li><p>与冒泡排序比较</p>
-<ul>
-<li><p>二者平均时间复杂度都是O(n^2)</p>
-</li>
-<li><p>选择排序一般要快于冒泡，因为交换次数少</p>
-</li>
-<li><p>但如果集合有序度高，冒泡优于选择</p>
-</li>
-<li><p>冒泡属于稳定排序算法，而选择属于不稳定排序</p>
-</li>
-<li><p>&#96;&#96;&#96;java<br>package 基础篇.排序;</p>
-<p>import java.util.Arrays;</p>
-<p>public class 选择排序 {<br>public static void main(String[] args) {<br>    int[] arr &#x3D; {2,3,5,3,2,45,78,21,1};<br>    selection(arr);<br>    System.out.println(Arrays.toString(arr));<br>}<br>public static void selection(int[]arr){<br>    for (int i &#x3D; 0; i &lt; arr.length - 1; i++) {<br>        &#x2F;&#x2F; i为每轮选择最小元素索引要交换到的位置<br>        int s &#x3D; i;<br>        for (int j &#x3D; s+1; j &lt; arr.length; j++) {<br>            if (arr[s] &gt; arr[j]){<br>                s &#x3D; j;<br>            }<br>        }<br>        if (s !&#x3D; i){<br>            int temp &#x3D; arr[s];<br>            arr[s] &#x3D; arr[i];<br>            arr[i] &#x3D; temp;<br>        }<br>    }<br>}<br>}</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 插入排序</span><br><span class="line"></span><br><span class="line">- 思路</span><br><span class="line"></span><br><span class="line">  - 将数组分为两个区域，排序区域和未排序区域，每一轮从未排序区域中取得第一个元素，插入到排序区域中（需要保证顺序）</span><br><span class="line">  - 重复以上步骤，直到整个数组有序</span><br><span class="line"></span><br><span class="line">- 优化方式</span><br><span class="line"></span><br><span class="line">  - 待插入元素进行比较时，遇到比自己小的元素，就代表找到了插入位置，无需进行后续比较</span><br><span class="line">  - 插入时可以直接移动元素，而不是交换元素</span><br><span class="line"></span><br><span class="line">- 与选择排序比较</span><br><span class="line"></span><br><span class="line">  - 二者平均时间复杂度都是O(n^2)</span><br><span class="line"></span><br><span class="line">  - 大部分情况下，插入略优于选择</span><br><span class="line"></span><br><span class="line">  - 有序集合插入的时间复杂度为O(n)</span><br><span class="line"></span><br><span class="line">  - 插入属于稳定排序算法，而选择属于不稳定排序</span><br><span class="line"></span><br><span class="line">  - ```java</span><br><span class="line">    package 基础篇.排序;</span><br><span class="line">    </span><br><span class="line">    import java.util.Arrays;</span><br><span class="line">    </span><br><span class="line">    public class 插入排序 &#123;</span><br><span class="line">        public static void main(String[] args) &#123;</span><br><span class="line">            int[]arr = &#123;4,1,21,243,13,12,4,12,0&#125;;</span><br><span class="line">            insert(arr);</span><br><span class="line">            System.out.println(Arrays.toString(arr));</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        private static void insert(int[] arr) &#123;</span><br><span class="line">            for (int i = 1; i &lt; arr.length; i++) &#123;</span><br><span class="line">                int j = i - 1;</span><br><span class="line">                int t = arr[i];</span><br><span class="line">                while (j &gt;= 0)&#123;</span><br><span class="line">                    if (t &lt; arr[j])&#123;</span><br><span class="line">                        arr[j+1] = arr[j];</span><br><span class="line">                    &#125;else &#123;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">                arr[j+1] = t;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><ul>
-<li><p>思路：</p>
-</li>
-<li><p>每一轮选择一个基准点进行分区</p>
-<ul>
-<li>让小于基准点的元素进入一个分区，大于基准点的进入另一个分区</li>
-<li>当分区完成时，基准点元素的位置就是它应该所在的其最终的位置</li>
-</ul>
-</li>
-<li><p>在子分区重复以上过程，直至子分区元素个数小于等于1，体现的是分而治之的思想</p>
-</li>
-<li><p>单边循环</p>
-<ul>
-<li><p>选择最右元素最为基准点</p>
-</li>
-<li><p>j指针负责找到比基准点小的元素，一旦找到则与i进行交换</p>
-</li>
-<li><p>i指针维护小于基准点元素的边界，也是每次交换的目标索引</p>
-</li>
-<li><p>最后基准点与i交换，i即为分区位置</p>
-</li>
-<li><p>&#96;&#96;&#96;java<br>package 基础篇.排序;</p>
-<p>import java.util.Arrays;</p>
-<p>public class 快速排序 {<br>public static void main(String[] args) {<br>    int[] arr &#x3D; {2,2,32,54,1,24,54,34,6,43};<br>    quick(arr,0, arr.length - 1);<br>    System.out.println(Arrays.toString(arr));<br>}<br><br>public static void quick(int[] arr,int l, int r){<br>    if (l &gt;&#x3D; r){<br>        return;<br>    }<br>    int p &#x3D; quickSort(arr,l,r);<br>    quick(arr,l,p-1);<br>    quick(arr,l+1,r);<br>}<br>public static int quickSort(int[] arr,int l,int r){<br>    int pv &#x3D; arr[r];<br>    int i &#x3D; l;<br>    for (int j &#x3D; i; j &lt; r; j++){<br>        if (arr[j] &lt; pv){<br>            swap(arr,i,j);<br>            i++;<br>        }<br>    }<br>    swap(arr,i,r);<br>    return i;<br>}<br><br>public static void swap(int[] arr,int l,int r){<br>    int temp &#x3D; arr[l];<br>    arr[l] &#x3D; arr[r];<br>    arr[r] &#x3D; temp;<br>}<br>}</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 双边循环</span><br><span class="line"></span><br><span class="line">  - 选择最左元素最为基准点元素</span><br><span class="line"></span><br><span class="line">  - l指针负责从右向左找比基准点小的元素，i指针负责从左向右找比基准点大的元素，一旦找到二者交换，直至i，j相交</span><br><span class="line"></span><br><span class="line">  - 最后基准点与i交换，i即为分区位置</span><br><span class="line"></span><br><span class="line">  - 特点</span><br><span class="line"></span><br><span class="line">    - 平均时间复杂度是 O(n log2n),最坏时间复杂度 O(n^2)</span><br><span class="line">    - 数据量较大时，优势非常明显</span><br><span class="line">    - 属于不稳定排序</span><br><span class="line"></span><br><span class="line">  - ```java</span><br><span class="line">    package 基础篇.排序;</span><br><span class="line">    </span><br><span class="line">    import java.util.Arrays;</span><br><span class="line">    </span><br><span class="line">    public class 快速排序 &#123;</span><br><span class="line">        public static void main(String[] args) &#123;</span><br><span class="line">            int[] arr = &#123;2,2,32,54,1,24,54,34,6,43&#125;;</span><br><span class="line">            quick(arr,0, arr.length - 1);</span><br><span class="line">            System.out.println(Arrays.toString(arr));</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        public static void quick(int[] arr,int l, int r)&#123;</span><br><span class="line">            if (l &gt;= r)&#123;</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            int p = quickSort(arr,l,r);</span><br><span class="line">            quick(arr,l,p-1);</span><br><span class="line">            quick(arr,l+1,r);</span><br><span class="line">        &#125;</span><br><span class="line">        public static int quickSort(int[] arr,int l,int r)&#123;</span><br><span class="line">            int pv = arr[l];</span><br><span class="line">            int i = l;</span><br><span class="line">            int j = r;</span><br><span class="line">            while (i &lt; j)&#123;</span><br><span class="line">                //从右往左找小的</span><br><span class="line">                while (i &lt; j &amp;&amp; arr[j] &gt; pv)&#123;</span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">                //从左往右找大的</span><br><span class="line">                while (i &lt; j &amp;&amp; arr[i] &lt;= pv)&#123;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">                swap(arr,i,j);</span><br><span class="line">            &#125;</span><br><span class="line">            swap(arr,l,i);</span><br><span class="line">            return l;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        public static void swap(int[] arr,int l,int r)&#123;</span><br><span class="line">            int temp = arr[l];</span><br><span class="line">            arr[l] = arr[r];</span><br><span class="line">            arr[r] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>要点</p>
-<ul>
-<li>基准点在左边，并且要先j后i</li>
-<li>while(i &lt;  j &amp;&amp; a[j] &gt; pv) j–</li>
-<li>while(i &lt; j &amp;&amp; a[i] &lt;&#x3D; pv) i++</li>
-</ul>
-</li>
-</ul>
-<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><h4 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h4><img src="/2022/09/16/%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/20181222211418449.png" style="zoom:50%;">
-
-<img src="/2022/09/16/%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/20210301210035894.png" style="zoom:50%;">
-
-<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><h5 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h5><ul>
-<li>扩容机制<ul>
-<li>ArrayList（）：默认构造器，数组长度为0</li>
-<li>ArrayList（int capacity）：使用指定长度作为数组长度</li>
-<li>ArrayList（Collection&lt;? extends E&gt; c）：使用集合的长度为数组 长度</li>
-<li>add（Object o）：首次扩容为10，再次扩容为上次扩容的1.5倍</li>
-<li>addAll（Collection c）：没有元素时，容量为Math.max(10,实际元素个数)，有元素时，容量为Math.max(下一次扩容数量，实际元素个数)</li>
-</ul>
-</li>
-<li>fail-fast和fail-safe<ul>
-<li>在遍历集合的时候，如果对集合中的元素进行修改的话，对于不同的List实现类有不同的结果</li>
-<li>fail-fast：一旦发现遍历时有其他线程修改元素，会立即抛出并发修改异常</li>
-<li>fail-safe：一旦发现遍历时有其他线程修改元素，会有对应的策略，比如牺牲一致性来支持并发修改</li>
-<li>fail-fast源码分析<ul>
-<li>在向ArrayList中添加元素时，会维护一个modCount，向集合中添加了几个元素，这个modCount就是几。在遍历集合时，会创建一个iterator对象，这个对象有一个自己的expectedModCount默认值就是list集合的长度，在每次遍历调用next时，会先调用一个checkForComodification（）来检查两个值是否相同，如果相同无事发生，如果不同则代表在遍历过程中有其他线程修改了list中的内容，导致modCount和expectedModCount不同抛出异常。</li>
-</ul>
-</li>
-<li>fail-safe源码分析<ul>
-<li>在向copyOnWriteList添加数据时，会维护一个快照，这个快照会备份第一次添加的元素。在添加元素时，会得到旧的集合数据，通过旧数据重新复制一个新数组作为list中的数据，而遍历的数据仍是旧的。所以遍历的集合数据和list中的集合数据是不一样的，牺牲了一致性。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="ArrayList与LinkedList"><a href="#ArrayList与LinkedList" class="headerlink" title="ArrayList与LinkedList"></a>ArrayList与LinkedList</h5><ul>
-<li>ArrayList<ul>
-<li>基于数组，需要连续内存</li>
-<li>随机访问快，（指根据下标访问）</li>
-<li>尾部插入，删除性能可以，其他部分插入，删除都会移动数据，因此性能会低</li>
-<li>可以利用cpu缓存，局部性原理</li>
-</ul>
-</li>
-<li>LinkedList<ul>
-<li>基于双向链表，无需连续内存</li>
-<li>随机访问慢，（要沿着链表遍历）</li>
-<li>头尾插入删除性能高</li>
-<li>占用内存多</li>
-</ul>
-</li>
-<li>由于底层数据结构不同，ArrayList更适合随机查找，LinkedList更适合删除，添加。LinkedList还实现了Deque接口，所以LinkedList还可以当队列使用</li>
-</ul>
-<h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h4><ul>
-<li><p>底层数据结构，1.7和1.8有何不同</p>
-<ul>
-<li>1.7 数组 + 链表，1.8 数组 + （链表 | 红黑树）</li>
-</ul>
-</li>
-<li><p>为何要用红黑树，</p>
-<ul>
-<li>在1.7时使用的是数组加链表的数据结构，当链表的长度过大时也会影响查找的效率。链表的搜索时间复杂度为O(n)，红黑树的搜索时间复杂度为O(log 2 n)。红黑树可以看做高度平衡的二叉树，所以查找的效率很高。但是有利就有弊，因为平衡二叉树为了保持平衡在每次插入删除时都要进行调整。</li>
-<li>红黑树：除了满足树中节点一类是红色的一类是黑色的外，还要满足 ①根节点是黑色的。②每个叶子节点都是黑色的空节点 ③任何相邻的节点都不能同时为红色，红色节点是被黑色节点隔开的。④每个节点，从该节点到可达叶子节点的所有路径，都包含相同数目的黑节点</li>
-</ul>
-</li>
-<li><p>为何一上来不树化 </p>
-<ul>
-<li>hash表的查找，更新的时间复杂度是O(1),而红黑树的查找，更新时间复杂度是O(log 2n).当链表比较短时不必进行树化，二叉树占用的内存比链表多</li>
-</ul>
-</li>
-<li><p>树化阈值为何是8</p>
-<ul>
-<li>目的是让树化的几率更小，hash值如果足够随机，则在hash表内按泊松分布，在负载因子0.75的情况下，长度超过8的链表出现概率是亿分之六，几乎为不可能事件，如果真的碰撞发生了8次，说明由于元素本身和hash函数的原因，后续还有可能继续发生hash碰撞。所以应该转成红黑树。</li>
-</ul>
-</li>
-<li><p>何时会树化</p>
-<ul>
-<li>当链表的长度超过树化阈值8，并且数组的长度大于等于64才会树化</li>
-</ul>
-</li>
-<li><p>何时会退化为链表</p>
-<ul>
-<li><p>退化情况1：在扩容时如果拆分树时，树元素个数&lt;&#x3D;6,则会退化为链表</p>
-</li>
-<li><p>退化情况2：在remove节点前，如果root，root.left,root.right,root.left.left有一个为null，也会退化成链表</p>
-</li>
-</ul>
-</li>
-<li><p>索引如何计算</p>
-<ul>
-<li>计算key的hashCode，再进行调用HashMap的hash方法进行二次hash，最后于容量-1进行按位与得到索引</li>
-</ul>
-</li>
-<li><p>hashCode都有了，为何要提供hash方法</p>
-<ul>
-<li>二次hash是为了综合高位数据，避免hash碰撞，在得到key的hash之后右移16位得到新的hash。让hash分布更均匀</li>
-</ul>
-</li>
-<li><p>如何扩容</p>
-<ul>
-<li>计算索引时，如果是2的n次幂可以使用按位与运算代替取模，效率更高，扩容时hash &amp; oldCap &#x3D;&#x3D; 0的元素留在原来位置，否则新位置 &#x3D; 旧位置 + oldCap</li>
-</ul>
-</li>
-<li><p>数组容量为何是2的n次幂</p>
-<ul>
-<li>计算索引时有一次与运算，如果容量不是2的n次幂，那么在计算索引时 <strong>容量 - 1 &amp; hash</strong>不能覆盖[0,n-1]范围的。以上都是为了配合容量为2的n次幂的优化手段，例如hashTable的容量就不是2的n次幂，并不能说哪种设计更优，应该是综合各种因素的最终选择</li>
-</ul>
-</li>
-<li><p>介绍一下put方法的流程，1.7与1.8有何不同</p>
-<ul>
-<li>hashmap是懒惰创建数组的，首次使用时才会创建数组</li>
-<li>计算索引。先调用hashCode，在调用hash，最后与容量减一按位与得到索引</li>
-<li>如果索引没有被占用，把对象放入索引位置。1.7是Entry对象，1.8是Node对象</li>
-<li>如果索引已经被占用<ul>
-<li>如果这个位置已经是红黑树了，则在红黑树上添加或更新</li>
-<li>如果是一个普通的node，那么就创建链表，如果链表长度超过阈值并且数组长度大于等于64则树化</li>
-</ul>
-</li>
-<li>返回前检查容量是否超过扩容阈值，一旦超过进行扩容，先把元素放在旧数组中，创建新数组然后把旧数组中的数据迁移过去</li>
-<li>不同<ul>
-<li>在插入节点时，1.7是头插法，1.8是尾插法</li>
-<li>1.7是大于等于阈值并且没有空位是才会扩容，而1.8是大于阈值就扩容</li>
-<li>1.8在扩容重新计算索引时，会优化，如果某个节点的的hash值与旧容量按位与的结果为0时就不移动位置。否则新位置等于就位置+旧容量</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>负载因子为何是0.75f</p>
-<ul>
-<li>是为了在空间占用和查询之间取得较好的权衡</li>
-<li>大于这个值，空间节省了，但是链表过长会影响性能</li>
-<li>小于这个值，扩容触发频繁，链表长度不会太长，但是无用的空间更多，资源浪费</li>
-</ul>
-</li>
-<li><p>多线程下会有什么问题</p>
-<ul>
-<li><p>扩容死链 1.7</p>
-<ul>
-<li><p>采用头插法添加节点</p>
-</li>
-<li><p>单线程下扩容</p>
-<ul>
-<li>得到新数组的长度</li>
-<li>遍历旧数组的每一个下标下的链表，每个节点用e表示</li>
-<li>当e不为null时，先把e的下一个节点存起来，也就是next</li>
-<li>重新计算hash值</li>
-<li>根据hash值和新数组容量得到e的下标</li>
-<li>将e的next指针指向新数组下标的位置</li>
-<li>将该数组下标的节点变为e节点</li>
-<li>循环直到e为null</li>
-</ul>
-</li>
-<li><p>多线程下扩容</p>
-<ul>
-<li>两个线程A，B的e和next指针都同时指向了相同的元素，比如说a，b</li>
-<li>此时B线程进行扩容，把a，b移动到了新数组中，B线程结束</li>
-<li>但由于是采用头插法，会导致A线程记录的元素顺序与扩容后记录的元素顺序发生了改变</li>
-<li>在第一次循环时，e指针把a节点放到新数组中并指向了next指针，next指针此时指向b</li>
-<li>第二次循环时，e指针把b节点放到新数组中并指向了next指针，<strong>此时next指针又重新指向了a节点</strong></li>
-<li>所以导致第三次循环next指向空，e指针指向a，a又被加了一次。所以在新数组中造成了一个死链。所以在访问时会造成死循环</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>数据错乱 1.7 1.8</p>
-<ul>
-<li>多线程下<ul>
-<li>准备两个线程，分别放入索引值相同的两个数据</li>
-<li>在单线程下会有两个key</li>
-<li>在线程1放数据时由于是第一个进来所以数组对应下标并没有数据，但此时又有一个线程进来，由于线程1并没有结束，所以第二个线程查看数组对应下标也没有数据</li>
-<li>此时第一个线程放数据，第二个线程也要放数据，那么就会造成覆盖现象。谁先放入谁就会被覆盖</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>key是否可以为null，作为key的对象有什么要求</p>
-<ul>
-<li>可以为null</li>
-<li>必须重现hashCode和equals，并且key的内容不能修改（不可变）</li>
-</ul>
-</li>
-<li><p>String对象的hashCode如何设计，为什么每次乘31</p>
-<ul>
-<li>目标是达到均匀的散列效果</li>
-<li>31带入散列公式有较好的散列性，并且31* h可以转换为位移和减法运算，比乘法运算效率高</li>
-</ul>
-</li>
-</ul>
-<h4 id="HashTable和HashMap的区别"><a href="#HashTable和HashMap的区别" class="headerlink" title="HashTable和HashMap的区别"></a>HashTable和HashMap的区别</h4><p>hashtable也是一个散列表，存储的内容是键值对</p>
-<ul>
-<li>hash值不同<ul>
-<li>hashtable直接使用key的hashCode函数</li>
-<li>hashMap重新计算hash值。hashCode() ^ hashCode&gt;&gt;&gt;16</li>
-</ul>
-</li>
-<li>遍历方式不同<ul>
-<li>hasahtable使用Iterator和Enumeration遍历</li>
-<li>hashmap使用Iterator遍历</li>
-</ul>
-</li>
-<li>是否提供contains方法<ul>
-<li>hashtable保留了contains，containsKey，containsValue方法</li>
-<li>hashmap只有containsKey和containsValue方法</li>
-</ul>
-</li>
-<li>初始容量与扩容方式不同<ul>
-<li>hashtable初始容量为11，扩容方式是<strong>旧容量 * 2 + 1</strong></li>
-<li>hashmap初始容量为16，扩容方式是<strong>旧容量 * 2</strong></li>
-</ul>
-</li>
-<li>key和value是否为null<ul>
-<li>hashmap key只能有一个null键，多个null value</li>
-<li>hashmap key和value都不能为null</li>
-</ul>
-</li>
-<li>线程安全不同<ul>
-<li>hashtable 由于使用了synchronize所以是线程安全的</li>
-<li>hashmap 线程不安全</li>
-</ul>
-</li>
-<li>继承父类不同<ul>
-<li>hashtable 继承Dictionary类</li>
-<li>hashmap 继承AbstractMap类</li>
-</ul>
-</li>
-</ul>
-<h4 id="ConCurrentHashMap"><a href="#ConCurrentHashMap" class="headerlink" title="ConCurrentHashMap"></a>ConCurrentHashMap</h4><h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><h4 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h4><ul>
-<li><p>饿汉式</p>
-<ul>
-<li>构造私有</li>
-<li>提供一个私有静态的变量指向唯一实例</li>
-<li>提供公共的get方法返回实例</li>
-<li>破坏单例以及预防<ul>
-<li>反射破坏单例。在构造方法中判断实例是否已被赋值，如果被赋值则抛出异常</li>
-<li>反序列化破坏单例。提供一个readResolve方法返回实例对象</li>
-<li>Ubsafe破坏单例。目前没有预防办法</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>懒汉式</p>
-<ul>
-<li><p>构造私有</p>
-</li>
-<li><p>提供一个私有静态的变量默认指向null</p>
-</li>
-<li><p>私有变量必须被volatitle修饰</p>
-</li>
-<li><p>第一次创建判断实例是否为null，是创建，不是直接返回</p>
-</li>
-<li><p>多线程下创建实例 DCL (double check lock)</p>
-<ul>
-<li>&#96;&#96;&#96;java<br>public static Single getInstance(){<br>if (INSTANCE &#x3D;&#x3D; null){<br>    synchronized (Single.class){<br>        if (INSTANCE &#x3D;&#x3D; null){<br>            INSTANCE &#x3D; new Single();<br>        }<br>    }<br>}<br>return INSTANCE;<br>}<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 实现方式</span><br><span class="line"></span><br><span class="line">  - 饿汉式</span><br><span class="line">  - 枚举饿汉式</span><br><span class="line">  - 懒汉式</span><br><span class="line">  - 双检锁懒汉式</span><br><span class="line">  - 内部类懒汉式</span><br><span class="line"></span><br><span class="line">- jdk中的单例</span><br><span class="line"></span><br><span class="line">  - RunTime类，饿汉式</span><br><span class="line">  - System类中的Console对象，双检锁懒汉式</span><br><span class="line">  - Collections集合工具类，懒汉式</span><br><span class="line"></span><br><span class="line">## 并发篇</span><br><span class="line"></span><br><span class="line">### 线程状态</span><br><span class="line"></span><br><span class="line">- java的线程状态</span><br><span class="line">  - &lt;img src=&quot;D:\blog\source\_posts\$&#123;fVue&#125;\image-20220920101937663.png&quot; alt=&quot;image-20220920101937663&quot; style=&quot;zoom:50%;&quot; /&gt;</span><br><span class="line">  </span><br><span class="line">- 线程池的核心参数</span><br><span class="line">  - corePoolSize核心线程数：最多保留的线程数</span><br><span class="line">  - maximumPoolSize最大先从数目：核心线程+救急线程</span><br><span class="line">  - keepAliveTime生存时间：针对救急线程</span><br><span class="line">  - unit时间单位：针对救急线程</span><br><span class="line">  - workQueue：阻塞队列</span><br><span class="line">  - threadFactory线程工厂：为创建线程命名</span><br><span class="line">  - handler:当无空闲线程并且队列已满时的四种拒绝策略</span><br><span class="line">  </span><br><span class="line">- sleep和wait的异同</span><br><span class="line">  - wait，wait(long),sleep(long) 的笑熬过都是让当前线程暂时放弃cpu使用权，进入阻塞状态</span><br><span class="line">  - 方法归属不同</span><br><span class="line">    - sleep(long)是Thread的静态方法</span><br><span class="line">    - wait是object的成员方法，每个对象都有</span><br><span class="line"></span><br><span class="line">  - 醒来时机不同</span><br><span class="line">    - 执行sleep(long)和wait(long)的线程都会在等待相应毫秒后醒来</span><br><span class="line">    - wait还可以被notify唤醒，如果不唤醒就一直等下去</span><br><span class="line">    - 都可以被打断唤醒</span><br><span class="line"></span><br><span class="line">  - 锁特性不同</span><br><span class="line">    - wait方法的调用必须先获取wait对象的锁，sleep无限制</span><br><span class="line">    - wait方法执行后会释放对象锁，允许其他线程获得该锁</span><br><span class="line">    - sleep如果在synchronized代码块中执行，并不会放弃对象锁</span><br><span class="line"></span><br><span class="line">  ### lock和synchronized</span><br><span class="line">  </span><br><span class="line">  - 语法层面</span><br><span class="line">    - synchronized是关键字，源码在jvm中，用c++实现</span><br><span class="line">    - lock是接口，源码由jdk提供</span><br><span class="line">    - 使用sync时，退出同步代码块锁自动释放，使用lock时需要手动unlock释放</span><br><span class="line">  </span><br><span class="line">  - 功能层面</span><br><span class="line">    - 二者均属于悲观锁，具有基本的互斥，同步，锁重入功能</span><br><span class="line">    - lock有sync不具备的功能比如获取等待状态，公平锁，可打断，可超时，多条件变量</span><br><span class="line">    - lock有适合不同场景的不同实现类</span><br><span class="line">  </span><br><span class="line">  - 性能层面</span><br><span class="line">    - 没有竞争时sync有很多优化，如偏向锁，轻量级锁</span><br><span class="line">    - 竞争激烈时，lock实现类会提供更好的性能</span><br><span class="line">  </span><br><span class="line">- volatile能否保证线程安全</span><br><span class="line">  - 线程安全要考虑3个方面</span><br><span class="line">    - 可见性，一个线程对共享变量修改，另一个线程能看到最新的结果</span><br><span class="line">    - 有序性，一个线程内代码按顺序编写</span><br><span class="line">    - 原子性，一个线程内多行代码以一个整体运行，期间不能有其他线程的代码插队</span><br><span class="line"></span><br><span class="line">  - volatile能保证共享变量的可见性与有序性，但不能保证原子性</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 乐观锁和悲观锁</span><br><span class="line">  - 悲观锁的代表是sync和lock</span><br><span class="line">    - 核心思想是【线程只有占有了锁，才能去操作共享变量，每次只有一个线程占锁成功，获取锁失败的线程，都得停下来等待】</span><br><span class="line">    - 线程从运行到阻塞，再从阻塞到唤醒，涉及到上下文切换，如果频繁发生会影响性能</span><br><span class="line">    - 实际上，线程在获取sync和lock锁时，如果锁已被占用，都会做几次重复操作，减少阻塞的机会</span><br><span class="line">  - 乐观锁的代表是AtomicInteger，使用cas来保证原子性</span><br><span class="line">    - 核心思想是【无需加锁，每次只有一个线程能成功修改共享变量，其他失败的线程不需要停止，不断重试直至成功】</span><br><span class="line">    - 由于线程一直运行，不需要阻塞，因此不涉及上下文切换</span><br><span class="line">    - 需要多核cpu支持，且线程数不应超过cpu核数</span><br><span class="line">  </span><br><span class="line">  #### HashTable和ConCurrentHashMap的区别</span><br><span class="line">  </span><br><span class="line">  - hashTable初始容量11，扩容 容量 * 2 + 1</span><br><span class="line">  - 两个都是线程安全的map集合</span><br><span class="line">  - HashTable并发低，整个HashTable对应一把锁，同一时刻，只能有一个线程操作它</span><br><span class="line">  - 1.8之前ConcurrentHashMap使用了Segment+数组+链表的结构，每个Segment对应一把锁，如果多个线程访问不同的Segment则不会冲突</span><br><span class="line">  - 1.8之后ConcurrentHashMap将数组的每个头结点设为锁，如果多个线程访问的头结点不同，则不会冲突</span><br><span class="line"></span><br><span class="line">### ThreadLocal</span><br><span class="line"></span><br><span class="line">- 谈一谈对ThreadLocal的理解</span><br><span class="line">  - ThreadLocal可以实现【资源对象】的线程隔离，让每个线程各用各的【资源对象】，避免争用引发的线程安全问题</span><br><span class="line">  - ThreadLocal同时实现了线程内的资源共享</span><br><span class="line">  - ThreadLocal的原理</span><br><span class="line">    - 原理是，每个线程内有一个ThreadLocalMap类型的成员变量，用来存储对象</span><br><span class="line">      - 调用set方法，就是以ThreadLocal自己作为key，资源对象作为value，放入当前线程的ThreadLocalMap中</span><br><span class="line">      - 调用get方法，就是以ThreadLocal自己作为key，到当前线程中查找关联的资源值</span><br><span class="line">      - 调用remove方法，就是以ThreadLocal自己作为key，移除当前线程关联的资源值</span><br><span class="line">  - 为什么ThreadLocalMap中的key要设计为弱引用</span><br><span class="line">    - Thread可能需要长时间运行，如果key不再使用需要在内存不足的时候释放占用的内存</span><br><span class="line">    - &lt;img src=&quot;D:\blog\source\_posts\$&#123;fVue&#125;\image-20220922172020871.png&quot; alt=&quot;image-20220922172020871&quot; style=&quot;zoom:50%;&quot; /&gt;</span><br><span class="line">    - 这段代码说明Map的key是一个弱引用，但是值是一个强引用，删除掉key并不能删掉值。根据key是否为null来释放值得内存，释放时机有：</span><br><span class="line">      - 获取key发现null key</span><br><span class="line">      - set key事，会使用启发式扫描，清楚附近邻近的key，扫描次数与元素个数，是否发现nullkey有关</span><br><span class="line">      - remove时，一般使用ThreadLocal都是用static修饰成强引用无法被GC回收。即便ThreadLocalMap中的key是弱引用，但是外面的ThreadLocal是强引用所以无法回收，因此再remove时就把entry删掉释放内存</span><br><span class="line"></span><br><span class="line">## 虚拟机篇</span><br><span class="line"></span><br><span class="line">#### jvm内存结构</span><br><span class="line"></span><br><span class="line">- &lt;img src=&quot;D:\blog\source\_posts\$&#123;fVue&#125;\image-20220922174154133.png&quot; alt=&quot;image-20220922174154133&quot; style=&quot;zoom:50%;&quot; /&gt;</span><br><span class="line">- jvm内存结构大致分为5个部分，分别是程序计数器，虚拟机栈，本地方法栈，堆和方法区。除此之外还有堆中引用的jvm外得直接内存</span><br><span class="line">  - 程序计数器：用于记录下一条jvm指令的执行地址（如果是本地方法则为空）。每个线程都有自己的程序计数器，因为这样在切换线程的时候才能记录当前代码的运行状态。</span><br><span class="line">  - 虚拟机栈：每个线程运行时所需要的内存称为虚拟机栈，每个栈由多个栈帧构成，对应每次方法调用时所占的内存。用来存储局部变量，引用等信息。</span><br><span class="line">  - 本地方法栈：为本地方法服务</span><br><span class="line">  - 堆：存储对象</span><br><span class="line">  - 方法区：类加载后存放类的信息</span><br><span class="line">  - 运行时常量池：是方法区的一部分，</span><br><span class="line">  - 字符串常量池：1.6之前在方法区中，1.7后在堆中。</span><br><span class="line">    - 常量池中的字符串仅是符号，第一次用到才变为对象</span><br><span class="line">    - 利用串池的机制，避免重复创建字符串对象</span><br><span class="line">    - 拼接的原理是StringBuilder</span><br><span class="line">    - 使用intern主动将字符串放入池中</span><br><span class="line">- 出现内存溢出的部分</span><br><span class="line">  - 除程序计数器外的部分都会出现</span><br><span class="line">  - StackOverflowError</span><br><span class="line">    - 堆内存耗尽--对象越来越多，又一直在使用不能被垃圾回收</span><br><span class="line">    - 方法区内存耗尽--加载的类越来越多</span><br><span class="line">    - 虚拟机栈累积--每个线程最多会占用1m内存，线程个数越来越多且长时间运行不被销毁</span><br><span class="line">  - OutOfMemoryError</span><br><span class="line">    - 虚拟机栈内部--方法调用次数过多</span><br><span class="line">- 方法区与永久代，元空间的关系</span><br><span class="line">  - 方法区是jvm规范中定义的一块内存区域，用来存储类的元数据，方法字节码，即时编译期需要的信息等</span><br><span class="line">  - 永久代是HotSpot虚拟机对jvm规范的实现 （1.8）之前</span><br><span class="line">  - 元空间是Hotspot虚拟机对jvm规范的实现（1.8）之后，使用本地内存作为这些信息的存储空间的</span><br><span class="line"></span><br><span class="line">#### jvm内存参数</span><br><span class="line"></span><br><span class="line">- -Xmx：虚拟机最大内存</span><br><span class="line">- -Xms：虚拟机最小内存</span><br><span class="line">- -Xmn：新生代内存</span><br><span class="line">- -XX:SurvivorRation：</span><br><span class="line">  - &lt;img src=&quot;D:\blog\source\_posts\$&#123;fVue&#125;\image-20220922183132869.png&quot; alt=&quot;image-20220922183132869&quot; style=&quot;zoom:50%;&quot; /&gt;</span><br><span class="line">  - f区和t区的内存相同，和e区的内存占比默认是8：1</span><br><span class="line">  - -XX:NewRation:新生代和老年代的占比是1：2</span><br><span class="line"></span><br><span class="line">#### 垃圾回收</span><br><span class="line"></span><br><span class="line">- 垃圾回收算法</span><br><span class="line"></span><br><span class="line">  - 标记清除算法：分为标记，清除两个阶段。首先标记出不需要回收的对象，完成之后统一回收所有未被标记的对象</span><br><span class="line">    - 缺点：</span><br><span class="line">      - 效率问题</span><br><span class="line">      - 回收后会产生不连续的内存碎片</span><br><span class="line"></span><br><span class="line">  - 标记整理算法：分为标记，整理两个阶段，搜先标记出不需要回收的对象，完成之后让所有存活的对象向一端移动然后清理内存</span><br><span class="line"></span><br><span class="line">  - 标记复制算法：将内存分为两块，每次将存活的对象都复制到另一块内存中，没有内存碎片，复制完后再把旧的内存区域清空</span><br><span class="line">- GC和分代回收算法</span><br><span class="line">  - GC的主要目的在于实现无用对象内存的自动释放，减少内存碎片，加快分配速度</span><br><span class="line">  - 回收区域是**堆内存**，不包括虚拟机栈，在方法调用结束会自动释放方法占用内存</span><br><span class="line">  - 判断是否是无用对象，使用可达性分析算法，三色标记法标记存活对象，回收未被标记对象</span><br><span class="line">  - GC具体的实现称为垃圾回收器</span><br><span class="line">  - GC大多采用分代回收算法，理论依据是大部分对象朝生夕灭，用完立刻回收，另有少部分对象会长时间存货，每次很难回收，根据这两种特性的对象将回收区域分为新生代和老年代。不同区域应用不同的回收策略</span><br><span class="line">- 分代回收</span><br><span class="line">  - 伊甸园 eden，最初对象都被分配到这里，与幸存区合称为新生代</span><br><span class="line">  - 幸存区 survivor，当伊甸园内存不足，回收后的幸存对象到这里，分成from和to，采用标记复制算法</span><br><span class="line">  - 老年代 old, 当幸存区对象熬过几次回收，（最多15次）晋升到老年代，（幸存区内存不足或大对象会导致提前晋升）</span><br><span class="line">- 垃圾收集器</span><br><span class="line">  - CMS</span><br><span class="line">    - CMS收集器是一种以获取最短回收停顿时间为目标的收集器。它非常符合在注重用户体验的应用上使用</span><br><span class="line">    - CMS收集器是HotSpot虚拟机第一款真正意义上的并发收集器，它第一次实现了让垃圾收集线程与用户线程基本上同时工作</span><br><span class="line">    - 采用标记-清除算法，分为4个步骤</span><br><span class="line">      - 初始标记：暂停所有线程，并记录下直接与root相连的对象，速度很快</span><br><span class="line">      - 并发标记：同时开启GC和用户线程并记录所有可达对象。由于用户线程会不断更新引用，所以GC线程无法保证可达性分析的实时性</span><br><span class="line">      - 重新标记：为了修正并发标记期间以未用户程序继续运行而导致标记产生变动的那一部分对象的标记记录，这个阶段的停顿时间一般比初始标记阶段时间稍长，远远比并发标记时间短</span><br><span class="line">      - 并发清除：开启用户线程，同时GC线程开始对未标记的区域做清扫</span><br><span class="line"></span><br><span class="line">    - 优点</span><br><span class="line">      - 并发收集，低停顿</span><br><span class="line"></span><br><span class="line">    - 缺点</span><br><span class="line">      - 对CPU资源敏感</span><br><span class="line">      - 无法处理浮动垃圾</span><br><span class="line">      - 由于采用标记清除算法，所以会导致大量空间碎片产生</span><br><span class="line"></span><br><span class="line">  - G1</span><br><span class="line">    - 响应时间与吞吐量兼顾</span><br><span class="line">    - 将堆内存划分为多个区域，每个区域都可以成为eden，幸存区，老年代，humongous（存储大对象）</span><br><span class="line">    - 工作流程</span><br><span class="line">      - 新生代回收：eden内存不足，标记复制 stw（stop the world，暂停用户线程）</span><br><span class="line">      - 并发标记：old并发标记，重新标记时需要stw</span><br><span class="line">      - 混合收集：并发标记完成，开始混合收集，参与复制的由eden，survivor，old，其中old会根据暂停时间目标，选择部分回收价值高的区域，复制时stw</span><br><span class="line">      - failback   full GC：整堆收集，收集整个堆和java方法区</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 项目中什么ing况下会内存溢出，怎么解决</span><br><span class="line"></span><br><span class="line">  - 误用线程池导致的内存溢出：创建线程过多或者线程池使用的阻塞队列无界。尽量根据自身实际自定义线程池参数</span><br><span class="line">  - 查询数据量太大导致内存移除：在findAll方法中多加条件或加limit限制数据数量</span><br><span class="line">  - 动态生成类导致内存溢出。动态类生成太多导致元空间溢出</span><br><span class="line"></span><br><span class="line">- 类加载过程，双亲委派</span><br><span class="line"></span><br><span class="line">  - 加载</span><br><span class="line"></span><br><span class="line">    - 将类的字节码载入方法区，并创建类 .class 对象</span><br><span class="line">    - 如果此类的父类没有加载，先加载父类</span><br><span class="line">    - 加载是懒惰执行</span><br><span class="line"></span><br><span class="line">  - 链接</span><br><span class="line"></span><br><span class="line">    - 验证 - 验证类是否符合Class规范，合法性，安全性检查</span><br><span class="line">    - 准备 - 为static变量分配空间，设置默认值</span><br><span class="line">    - 解析 - 将常量池的符号引用解析为直接引用</span><br><span class="line"></span><br><span class="line">  - 初始化</span><br><span class="line"></span><br><span class="line">    - 执行静态代码块与非final静态变量的赋值</span><br><span class="line">    - 初始化是懒惰执行</span><br><span class="line"></span><br><span class="line">  - 静态代码块，静态变量以及以static final 修饰的引用类型变量，在初始化时会放到一个方法中执行，而已static final 修饰的基本类型常量会在类加载之前执行，使用时并不会导致类的加载</span><br><span class="line"></span><br><span class="line">  - 双亲委派</span><br><span class="line"></span><br><span class="line">    - 是指优先委派上级类加载器进行加载，如果上级类加载器能找到这个类。则由上级加载，加载后该类也对下级加载器可见；找不到这个类，则下级类加载器才有资格执行加载。</span><br><span class="line"></span><br><span class="line">    - | 名称                    | 加载哪的类            | 说明         |</span><br><span class="line">      | ----------------------- | --------------------- | ------------ |</span><br><span class="line">      | BootStrap ClassLoader   | JAVA_HOME/jre/lib     | 无法直接访问 |</span><br><span class="line">      | Extension ClassLoader   | JAVA_HOME/jre/lib/ext | 显示为null   |</span><br><span class="line">      | Application ClassLoader | classpath             |              |</span><br><span class="line">      | 自定义类加载器          | 自定义                |              |</span><br><span class="line"></span><br><span class="line">    - 目的</span><br><span class="line"></span><br><span class="line">      - 让上级类加载器中的类对下级共享，即能让自定义的类依赖于jdk中的类</span><br><span class="line">      - 让类的加载有优先次序，保证核心类优先加载</span><br><span class="line"></span><br><span class="line">- 对象引用类型</span><br><span class="line"></span><br><span class="line">  - 对象引用类型分为强引用，软引用，弱引用和虚引用</span><br><span class="line"></span><br><span class="line">  - 强引用</span><br><span class="line"></span><br><span class="line">    - 一般声明对象是虚拟机生成的引用。强引用对象不会被垃圾回收</span><br><span class="line"></span><br><span class="line">  - 软引用</span><br><span class="line"></span><br><span class="line">    - 一般作为缓存使用。在垃圾回收时，虚拟机会根据当前系统剩余的内存来决定是否对软引用进行回收，如果比较紧张则虚拟机会回收反之不会</span><br><span class="line"></span><br><span class="line">    - ```java</span><br><span class="line">      SoftReference a = new SoftReference(new Object());</span><br><span class="line">      // a是对object的软引用</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>弱引用</p>
-<ul>
-<li>弱引用与软引用类似，只不过弱引用在垃圾回收时是一定会被回收的</li>
-</ul>
-</li>
-<li><p>虚引用</p>
-<ul>
-<li>垃圾回收是回收，无法通过引用获取到值，主要用于监测对象是否已经从内存中被删除</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="finalize"><a href="#finalize" class="headerlink" title="finalize"></a>finalize</h4><p>将资源释放和清理放在finalize方法中非常不好，非常影响性能，严重时甚至会引起OOM，从java9开始就被标注为@Deprecated，不建议被使用了</p>
-<ul>
-<li>两个重要队列<ul>
-<li>unfinalized队列：当重写了finalize方法的对象，早构造方法被调用时，jvm都会将其包装成一个finalizer对象，并加入unfinalized队列中（双向链表结构）</li>
-<li>referenceQueue队列：单向链表结构，刚开始是空的，当对象可以被当作垃圾回收时，就会把这些对象对应的finalizer对象加入队列</li>
-<li>如果一个对象没人引用，垃圾回收也没法立刻回收他，因为finalizer还在引用它，等调用完finalize方法再回收。负责回收的时Finalizer类中的FinalizeThread线程内的代码，这个线程从referenceQueue中逐一取出每个对象Finalizer对象，把他们从链表断开，这样没谁能引用到它以及对应的自定义对象，所以下次gc时就可以被回收了</li>
-</ul>
-</li>
-</ul>
-<p>为什么说finalize方法不好，非常影响性能</p>
-<ul>
-<li>不好<ul>
-<li>finalizerThread是守护线程，代码很有可能没有来得及执行完，线程就结束了。造成资源没有正确释放</li>
-<li>异常被吞，由于处理异常时没有任何处理，不能判断在释放资源时是否发生错误</li>
-</ul>
-</li>
-<li>性能<ul>
-<li>重写finalize方法的对象在第一次gc时并不能及时释放内存，因为要等着finalizerThread调用完finalize，把它从第一个unfinalized队列移除后，第二次gc时才能及时释放内存</li>
-<li>gc的调用本就因为内存不足，finalize调用又很慢（两个队列的移除操作，都是串行执行的，用来释放连接类的资源也应该不快）不能及时释放内存，对象释放不及时经过一段时间后就会被扔到老年代，老年代垃圾过多就会引发full gc，full gc后释放速度如果仍跟不上创建新对象速度，那么就会造成OOM。</li>
-</ul>
-</li>
-<li>质疑<ul>
-<li>有文章说【finalizer线程会和主线程进行竞争，但是由于finalizer线程优先级低，获得cpu时间少，因此永远跟不上主线程步伐】是错误的，finalizerThread线程优先级是8比普通线程高，跟不上的原因是finalize执行慢蹬综合因素导致。包括同步，链表元素的解绑等</li>
-</ul>
-</li>
-</ul>
-<h2 id="框架篇"><a href="#框架篇" class="headerlink" title="框架篇"></a>框架篇</h2><ul>
-<li>ApplicationContext  refresh（）流程<ul>
-<li>prepareRefresh<ul>
-<li>创建了Environment对象</li>
-<li>作用之一是为后续@Value，值注入时提供键值</li>
-</ul>
-</li>
-<li>obtainFreshBeanFactory<ul>
-<li>获取获取创建BeanFactory</li>
-<li>BeanFactory的作用负责bean的创建，依赖注入和初始化</li>
-<li>beanDefinition作为bean的设计规范，规定了bean的特征，如单例多例，来来管理，初始销毁方法等</li>
-<li>beanDefinition的来源多种多样，可以通过xml获得，通过配置类获得，通过组件扫描获得，也可以通过编程添加</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="spring-bean生命周期"><a href="#spring-bean生命周期" class="headerlink" title="spring bean生命周期"></a>spring bean生命周期</h4><ul>
-<li><h2 id="处理名称，检查缓存"><a href="#处理名称，检查缓存" class="headerlink" title="处理名称，检查缓存"></a>处理名称，检查缓存</h2></li>
-</ul>
-
       
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/11/25/%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2022-11-25T14:56:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-25</time>
+</a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/11/25/%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/">面试复习</a>
+    </h1>
+  
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/09/16/%E9%9D%A2%E8%AF%95%E5%A4%8D%E4%B9%A0/" alt="微信分享二维码">
-    </div>
-</div>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂项</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2022/11/24/SpringBoot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          SpringBoot学习笔记
-        
-      </div>
-    </a>
   
   
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -735,9 +226,9 @@ private static int brainySearch(int[] arr, int i) &#123;
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -810,6 +301,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">java框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂项</a>
               </li>
             
             <div class="clearfix"></div>
